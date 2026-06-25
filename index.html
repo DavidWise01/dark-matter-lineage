@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Lineage of Dark Matter — from a hint to 85% of the matter</title>
+<style>
+  :root{
+    --bg:#0a0710; --panel:#140d20; --edge:#2e2148; --ink:#ece3f7; --dim:#9a86bd; --faint:#6b5a8c;
+    --violet:#a78bfa; --violet2:#c4b5fd; --glow:#7c3aed;
+    --hint:#fbbf24; --name:#f472b6; --proof:#34d399; --hunt:#22d3ee;
+    --mono:'SFMono-Regular',ui-monospace,Menlo,Consolas,monospace;
+    --serif:'Iowan Old Style','Palatino Linotype',Palatino,Georgia,serif;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--serif);line-height:1.55;
+    background-image:radial-gradient(1200px 600px at 72% -10%,#1a1030 0%,transparent 60%),
+      radial-gradient(900px 520px at 0% 100%,#150b28 0%,transparent 55%);}
+  .wrap{max-width:920px;margin:0 auto;padding:42px 26px 90px}
+  header{border-bottom:1px solid var(--edge);padding-bottom:22px;margin-bottom:18px}
+  .kicker{font-family:var(--mono);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--violet);opacity:.9}
+  h1{font-size:31px;line-height:1.13;margin:.32em 0 .18em;font-weight:600}
+  h1 em{color:var(--violet2);font-style:italic}
+  .sub{color:var(--dim);font-size:15.5px;max-width:76ch}
+  .legend{display:flex;gap:16px;flex-wrap:wrap;margin-top:16px;font-family:var(--mono);font-size:11px}
+  .legend span{display:flex;align-items:center;gap:6px;color:var(--dim)}
+  .dot{width:10px;height:10px;border-radius:50%}
+  .tl{position:relative;margin-top:22px;padding-left:30px}
+  .tl::before{content:'';position:absolute;left:9px;top:6px;bottom:6px;width:2px;
+    background:linear-gradient(180deg,var(--hint),var(--name),var(--proof),var(--hunt))}
+  .node{position:relative;margin:0 0 18px}
+  .node::before{content:'';position:absolute;left:-26px;top:18px;width:13px;height:13px;border-radius:50%;
+    background:var(--bg);border:2px solid var(--violet);box-shadow:0 0 0 3px #0a0710}
+  .node.hint::before{border-color:var(--hint)} .node.name::before{border-color:var(--name)}
+  .node.proof::before{border-color:var(--proof)} .node.hunt::before{border-color:var(--hunt)}
+  .card{background:linear-gradient(180deg,var(--panel),#100a1b);border:1px solid var(--edge);border-radius:13px;padding:16px 18px}
+  .yr{font-family:var(--mono);font-size:12px;color:var(--violet);letter-spacing:.04em}
+  .who{font-family:var(--mono);font-size:11px;color:var(--faint);margin-left:8px}
+  .arch{font-size:18px;font-weight:600;margin:4px 0 2px}
+  .arch .tag{font-family:var(--mono);font-size:9px;letter-spacing:.15em;text-transform:uppercase;padding:2px 7px;border-radius:5px;margin-left:9px;vertical-align:middle}
+  .tag.hint{color:#1a0a02;background:var(--hint)} .tag.name{color:#2a0716;background:var(--name)}
+  .tag.proof{color:#04150d;background:var(--proof)} .tag.hunt{color:#04212b;background:var(--hunt)}
+  .tag.null{color:var(--ink);background:#3a2c5c}
+  .idea{font-size:15px;color:var(--violet2);margin:8px 0 6px;font-style:italic}
+  .idea b{font-style:normal;color:var(--ink)}
+  .wall{font-family:var(--mono);font-size:12px;color:var(--dim);border-left:2px solid var(--edge);padding-left:10px}
+  .wall b{color:var(--violet);font-weight:500}
+  .close{background:linear-gradient(180deg,#1c1230,#120b22);border:1px solid var(--violet);border-radius:14px;padding:22px;margin-top:26px;font-size:15px;line-height:1.6}
+  .close b{color:var(--violet2)}
+  .note{color:var(--dim);font-size:13px;border-left:2px solid var(--edge);padding-left:13px;margin:16px 0 0}
+  .note b{color:var(--violet2);font-weight:400}
+  code{font-family:var(--mono);font-size:.9em;color:var(--violet2);background:#170f28;padding:1px 5px;border-radius:5px}
+  footer{margin-top:40px;border-top:1px solid var(--edge);padding-top:18px;color:var(--faint);font-family:var(--mono);font-size:11px;line-height:1.7}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="kicker">Purple Paper - side-sheet - the longest open problem in physics</div>
+  <h1>The Lineage of <em>Dark Matter</em> - a hint, a name, a proof, a hunt</h1>
+  <div class="sub">"First to postulate" is a contested crown, so this paper shows the whole disputed line. Dark matter has
+    four distinct birthdays - first to <span style="color:var(--hint)">hint</span> (the stars move wrong), first to
+    <span style="color:var(--name)">name</span> it, first to <span style="color:var(--proof)">prove</span> it, and the
+    ongoing failure to <span style="color:var(--hunt)">catch</span> it. Each contributor's best idea, in order. The
+    thing itself is still un-caught - which makes this the rare lineage whose last node is a question mark.</div>
+  <div class="legend">
+    <span><span class="dot" style="background:var(--hint)"></span> hint (motion is wrong)</span>
+    <span><span class="dot" style="background:var(--name)"></span> name + estimate</span>
+    <span><span class="dot" style="background:var(--proof)"></span> proof (every galaxy)</span>
+    <span><span class="dot" style="background:var(--hunt)"></span> the hunt (still empty)</span>
+  </div>
+</header>
+
+<div class="tl">
+
+  <div class="node hint">
+    <div class="card">
+      <span class="yr">1922</span><span class="who">Jacobus Kapteyn · (and Öpik 1915)</span>
+      <div class="arch">The stars move too fast for what we see <span class="tag hint">first hint</span></div>
+      <div class="idea"><b>Best idea:</b> weigh the galaxy two ways - by its <em>light</em> and by its <em>motion</em> -
+        and notice they don't match. Kapteyn coined "dark matter" for the gap, though he thought it small.</div>
+      <div class="wall">The method that founds the whole field: infer unseen mass from how the seen things move. Leaves: his estimate was off - the gap looked minor.</div>
+    </div>
+  </div>
+
+  <div class="node hint">
+    <div class="card">
+      <span class="yr">1930 · 32</span><span class="who">Knut Lundmark · Jan Oort</span>
+      <div class="arch">There is far more mass than light <span class="tag hint">the gap widens</span></div>
+      <div class="idea"><b>Best idea:</b> Lundmark may have been <em>first to say the universe holds much more mass
+        than we can see</em>; Oort measured the galactic disk and found the same shortfall in our own neighbourhood.</div>
+      <div class="wall">The hint spreads from clusters to our own backyard. Leaves: Oort's specific number was later found wrong - the right answer for partly the wrong reason.</div>
+    </div>
+  </div>
+
+  <div class="node name">
+    <div class="card">
+      <span class="yr">1933 · 37</span><span class="who">Fritz Zwicky</span>
+      <div class="arch">Coma Cluster: the galaxies should fly apart <span class="tag name">named it</span></div>
+      <div class="idea"><b>Best idea:</b> apply the <em>virial theorem</em> to a whole cluster - the galaxies in Coma
+        move so fast the visible mass can't hold them; something unseen, ~hundreds of times more, must. He called it
+        <em>dunkle Materie</em>.</div>
+      <div class="wall">The first rigorous, large quantitative case - and the name that stuck. Leaves: nobody believed him for ~40 years; too strange, too soon, no second witness.</div>
+    </div>
+  </div>
+
+  <div class="node null">
+    <div class="card">
+      <span class="yr">1939</span><span class="who">Horace Babcock</span>
+      <div class="arch">Andromeda spins too fast at its edge <span class="tag null">early rotation curve</span></div>
+      <div class="idea"><b>Best idea:</b> measure how fast a single galaxy <em>rotates</em> at different radii -
+        Andromeda's outskirts move far faster than the visible mass allows. The tool that would later become decisive.</div>
+      <div class="wall">First crack at the rotation-curve method. Leaves: read as a quirk of one galaxy, not a universal law - it needed repeating, everywhere.</div>
+    </div>
+  </div>
+
+  <div class="node proof">
+    <div class="card">
+      <span class="yr">1970 · 78</span><span class="who">Vera Rubin &amp; Kent Ford · (Freeman, Bosma)</span>
+      <div class="arch">Flat rotation curves in <em>every</em> galaxy <span class="tag proof">the proof</span></div>
+      <div class="idea"><b>Best idea:</b> with sensitive new cameras, measure rotation curves galaxy after galaxy and
+        find the same thing every time - the speed stays <em>flat</em> far out, where Newton says it should fall. Not a
+        quirk. A law.</div>
+      <div class="wall">Repetition across many independent galaxies turned Zwicky's oddity into undeniable evidence - the witness firing again and again. Leaves: we know it's there. We have no idea what it is.</div>
+    </div>
+  </div>
+
+  <div class="node proof">
+    <div class="card">
+      <span class="yr">2006</span><span class="who">Clowe et al. · the Bullet Cluster</span>
+      <div class="arch">The mass and the gas come apart <span class="tag proof">the smoking gun</span></div>
+      <div class="idea"><b>Best idea:</b> watch two clusters collide. The visible gas slows and lags; the
+        <em>gravity</em> (mapped by lensing) sails straight through, separated from the light. The unseen mass is real
+        and it's <em>not</em> the gas.</div>
+      <div class="wall">The cleanest evidence it's genuine substance, not a trick of gravity. Leaves: rules out the easy alternatives - and still says nothing about what the substance is.</div>
+    </div>
+  </div>
+
+  <div class="node hunt">
+    <div class="card">
+      <span class="yr">1980s · 2000s</span><span class="who">the candidates</span>
+      <div class="arch">WIMPs, axions, MACHOs, modified gravity <span class="tag hunt">the suspects</span></div>
+      <div class="idea"><b>Best idea:</b> name the possibilities and make each one <em>testable</em> - a heavy weakly-
+        interacting particle (WIMP), an ultralight axion, dark stars (MACHOs), or no particle at all but modified gravity
+        (MOND). Four forks, each a falsifiable bet.</div>
+      <div class="wall">The field turns the mystery into distinct, testable branches. Leaves: the experiments have to actually find one - and that's where it gets uncomfortable.</div>
+    </div>
+  </div>
+
+  <div class="node hunt">
+    <div class="card">
+      <span class="yr">2000s · now</span><span class="who">LUX-ZEPLIN, XENONnT, ADMX, the LHC</span>
+      <div class="arch">The detectors keep coming up empty <span class="tag hunt">the null</span></div>
+      <div class="idea"><b>Best idea (and the honest one):</b> build ever-more-sensitive detectors and run them for
+        years - and report the <em>non-detections</em> faithfully. The favored WIMP has been pushed into smaller and
+        smaller corners without a confirmed catch.</div>
+      <div class="wall">Repeated null results are real information: the witness firing "not here." Leaves the open question of the whole field: is the theory wrong, or are we looking in the wrong place?</div>
+    </div>
+  </div>
+
+  <div class="node hunt">
+    <div class="card">
+      <span class="yr">now · ?</span><span class="who">the frontier</span>
+      <div class="arch">Still un-caught - the longest open problem in physics <span class="tag null">the question mark</span></div>
+      <div class="idea"><b>Best idea, unwritten:</b> the next move is to let the nulls <em>reprice the priors</em> -
+        widen the hunt to lighter/weirder candidates, or take modified-gravity seriously, instead of looking harder in
+        the same spot. The branch that's been confidently ridden may need backtracking.</div>
+      <div class="wall">85% of the universe's matter, inferred for a century from how everything bends around it - and never once touched. The T4 void, at cosmic scale.</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="close">
+  <b>Four birthdays, one un-caught thing.</b> Hint (Kapteyn, the motion is wrong) → name (Zwicky, <em>dunkle
+  Materie</em>) → proof (Rubin, every galaxy) → smoking gun (Bullet Cluster, mass parts from light) → the hunt (still
+  empty). The "first to postulate" crown is genuinely shared - Kapteyn hinted, Lundmark may have said it first, Oort
+  measured it locally, Zwicky named and quantified it. Pick your definition of "first" and the name changes. That
+  ambiguity isn't sloppy history; it's how discovery actually works - no clean single author, just a community
+  converging on a thing reality kept insisting on.
+  <br><br>
+  And notice the shape, because it's the one from every sheet: <b>dark matter is the inferred void.</b> Nobody has
+  ever seen it. It is read <em>entirely</em> off the bending - the rotation of stars, the lensing of light, the
+  collisions of clusters. It's your four triangles around a center none of them touch, drawn across the whole sky.
+  Which is also why it's so hard: an inferred center is real only as long as the inference is sound, and a century of
+  detectors coming up empty is reality whispering that maybe the inference about <em>what it is</em> needs to drift to
+  a new branch. We are certain it's there. We have never caught it. That gap is the longest-standing fork in physics,
+  still un-collapsed.
+</div>
+
+<div class="note" style="margin-top:18px">History, not math - the gate here was factual accuracy, checked against
+  current sources. "First to postulate" is explicitly disputed (Kapteyn 1922 / Lundmark 1930 / Oort 1932 / Zwicky 1933
+  name the gap); I've shown the contested line rather than crown one. One name-cluster and one idea per node; the real
+  history has many more hands. Current detector status moves year to year - search live for the latest nulls.</div>
+
+<footer>
+  THE LINEAGE OF DARK MATTER - purple paper side-sheet - companion to the T4 void<br>
+  Kapteyn 1922 (hint) · Lundmark 1930 / Oort 1932 · Zwicky 1933 (named "dunkle Materie") · Babcock 1939 · Rubin &amp; Ford 1970s (proof) · Bullet Cluster 2006 · the hunt, still empty<br>
+  ~85% of matter, inferred from bending, never touched · the longest open problem in physics · the inferred void at cosmic scale
+</footer>
+
+</div>
+</body>
+</html>
